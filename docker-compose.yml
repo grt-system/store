@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  grt-sys-store:
+    image: store
+    environment:
+      - DB_HOST=db                  # Hostname do banco (nome do serviço MySQL)
+      - DB_USER=store_user      # Usuário do banco
+      - DB_PASSWORD=store_password  # Senha do usuário
+      - DB_NAME=store_db        # Nome do banco de dados
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+
+  db:
+    image: mysql:8.0
+    container_name: store-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: store_db
+      MYSQL_USER: store_user
+      MYSQL_PASSWORD: store_password
+    ports:
+      - "3310:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
