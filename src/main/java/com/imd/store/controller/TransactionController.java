@@ -16,8 +16,8 @@ public class TransactionController {
     private TransactionService transactionService;
 
     @PostMapping("/sell")
-    public ResponseEntity<?> findProductById(@RequestParam String id) {
-
-        return  ResponseEntity.ok().body("ok");
+        public ResponseEntity<?> findProductById(@RequestParam Long id) {
+        transactionService.create(id);
+        return ResponseEntity.ok().body("ok");
     }
 }
