@@ -4,14 +4,14 @@ services:
   grt-sys-store:
     image: store
     environment:
-      - DB_HOST=db                  # Hostname do banco (nome do serviço MySQL)
-      - DB_USER=store_user      # Usuário do banco
-      - DB_PASSWORD=store_password  # Senha do usuário
-      - DB_NAME=store_db        # Nome do banco de dados
+      - DB_HOST=db
+      - DB_USER=store_user
+      - DB_PASSWORD=store_password
+      - DB_NAME=store_db
     depends_on:
       - db
     ports:
-      - "8080:80"
+      - "8083:8080"  # Mapeando a porta 8080 do container para 8083 na máquina local
 
   db:
     image: mysql:8.0
@@ -22,7 +22,7 @@ services:
       MYSQL_USER: store_user
       MYSQL_PASSWORD: store_password
     ports:
-      - "3310:3306"
+      - "3310:3306"  # Mapeando a porta 3306 do container para 3310 na máquina local
     volumes:
       - db_data:/var/lib/mysql
 
