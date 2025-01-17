@@ -15,7 +15,7 @@ public class TransactionService {
     private TransactionRepository transactionRepository;
 
     public TransactionDTO create(Long productId) {
-        Transaction transaction = Transaction.builder()
+        Transaction transaction = new Transaction.Builder()
                 .productId(productId)
                 .transactionDate(LocalDateTime.now())
                 .build();
