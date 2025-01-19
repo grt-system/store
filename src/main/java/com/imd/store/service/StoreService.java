@@ -1,6 +1,6 @@
 package com.imd.store.service;
 
-import com.imd.store.respository.StoreRepository;
+import com.imd.store.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

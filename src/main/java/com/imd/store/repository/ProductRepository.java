@@ -1,4 +1,4 @@
-package com.imd.store.respository;
+package com.imd.store.repository;
 
 import com.imd.store.model.Product;
 import com.imd.store.model.Transaction;
