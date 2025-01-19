@@ -1,5 +1,6 @@
 package com.imd.store.controller;
 
+import com.imd.store.dto.ProductDTO;
 import com.imd.store.model.Product;
 import com.imd.store.service.ProductService;
 import com.imd.store.service.FailureService;  // Importa o FailureService
@@ -35,6 +36,8 @@ public class ProductController {
 
         // Caso contrário, busca o produto no banco de dados
         Optional<Product> product = productService.findById(id);
+
+        //ProductDTO productDTO = new ProductDTO(1, "camisa", 30.30);
 
         // Verifica se o produto foi encontrado
         if (product.isPresent()) {

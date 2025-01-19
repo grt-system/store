@@ -14,7 +14,7 @@ import com.imd.store.dto.TransactionDTO;
 
 
 @RestController
-@RequestMapping("/store/transaction")
+@RequestMapping("/store")
 public class TransactionController {
 
         @Autowired
@@ -31,7 +31,7 @@ public class TransactionController {
                 return ResponseEntity.status(500).body("Simulated Error: The system is in an error state.");
             }
             TransactionDTO transactionDTO = transactionService.create(productId);
-            return ResponseEntity.ok("ok");
+            return ResponseEntity.ok(transactionDTO);
         }
 }
 
