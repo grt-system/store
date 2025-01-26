@@ -1,8 +1,11 @@
 package com.imd.store.controller;
 
+import com.imd.store.dto.ProductDTO;
 import com.imd.store.model.Product;
 import com.imd.store.service.ProductService;
 import com.imd.store.service.FailureService;  // Importa o FailureService
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +21,8 @@ public class ProductController {
 
     @Autowired
     private FailureService failureService;  // Injetando o FailureService
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
     /**
      * Endpoint para buscar um produto pelo ID com falha de omissão simulada.
@@ -35,10 +40,13 @@ public class ProductController {
 
         // Caso contrário, busca o produto no banco de dados
         Optional<Product> product = productService.findById(id);
+        logger.info("Product {}", String.valueOf(product.isEmpty()));
+
+        //ProductDTO productDTO = new ProductDTO(1, "camisa", 30.30);
 
         // Verifica se o produto foi encontrado
         if (product.isPresent()) {
-            return ResponseEntity.ok().body(product.get());  // Retorna o produto
+            return ResponseEntity.ok(product.get());  // Retorna o produto
         } else {
             return ResponseEntity.status(404).body("Product not found");  // Retorna 404 se não encontrado
         }

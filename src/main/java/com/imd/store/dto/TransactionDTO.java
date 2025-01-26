@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TransactionDTO {
 
-    private String transactionId;
+    private long transactionId;
 
     public TransactionDTO(Long id) {
     }

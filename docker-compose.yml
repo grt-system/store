@@ -11,7 +11,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8083:8080"  # Mapeando a porta 8080 do container para 8083 na máquina local
+      - "8083:8083"  # Mapeando a porta 8080 do container para 8083 na máquina local
 
   db:
     image: mysql:8.0

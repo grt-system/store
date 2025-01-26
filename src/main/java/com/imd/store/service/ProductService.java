@@ -1,7 +1,7 @@
 package com.imd.store.service;
 
 import com.imd.store.model.Product;
-import com.imd.store.respository.ProductRepository;
+import com.imd.store.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
